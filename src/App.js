@@ -4,6 +4,7 @@ import IsLoadingAndError from './IsLoadingAndError';
 import Footer from './Footer';
 import Login from './Login';
 import Profile from './Profile';
+import BestBooks from './BestBooks';
 import { withAuth0 } from '@auth0/auth0-react';
 
 import {
@@ -17,7 +18,7 @@ class App extends React.Component {
   render() {
     console.log('app', this.props);
     const { isAuthenticated } = this.props.auth0;
-    return(
+    return (
       <>
         <Router>
           <IsLoadingAndError>
@@ -25,15 +26,13 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/">
                 {/* TODO: if the user is logged in, render the `BestBooks` component, if they are not, render the `Login` component */}
-                {
-                  !isAuthenticated && (<Login/>)
-                }
+                {isAuthenticated ? <BestBooks/>: <Login/>}
               </Route>
               {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
-              <Route exact path="/profile">
-                {
-                  isAuthenticated && (<Profile/>)
-                }
+              <Route exact path="/Profile">
+
+                <Profile/>
+
               </Route>
             </Switch>
             <Footer />
