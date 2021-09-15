@@ -1,53 +1,54 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel'
+// import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 class Bookitem extends React.Component {
     render() {
         return (
+
             <>
-                {/* <p>{this.props.item.bookTitle}</p>
-            <p>{this.props.item.bookDescription}</p> */}
-
-                <Carousel variant="dark">
+                {/* <Carousel variant="dark">
                     <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="https://bilarabiya.net/wp-content/uploads/2020/07/art14c-29-143.jpg"
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>عالم صوفي</h3>
-                            <p>
-                                ضمن إطار أدبي يطرح جوستاين غاردر تساؤلات فلسفية تطال الحياة والوجود، يطل ذلك من خلال رسالتين أُرسلتا لصوفي، محور هذه الرواية، مضمونهما مختصر لا محدود في آن معاً: "من أنت" تسأل الأولى، و"من أين جاء العالم" تسأل الثانية... ينطلق جوستان من هذين السؤالين ليغوص عميقاً في تاريخ الفلسفة، التي تحمل في طياتها فلسفات انطلقت من نقطة أساسية من هذا الوجود. غاص جوستاين من خلال صوفي ومع الفلاسفة من خلال فكرهم في محاولة للإجابة على هذين التساؤلين... في إطار هذه الرواية التي هى ليست كأية رواية.</p>
-                        </Carousel.Caption>
+                        {this.props.item.map(item => {
+                            return (
+                                <div>
+                                    <img
+                                        className="d-block w-100"
+                                        src="https://bilarabiya.net/wp-content/uploads/2020/07/art14c-29-143.jpg"
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <h3>{item.bookTitle}</h3>
+                                        <p> {item.bookDescription} </p>
+                                        <h4>  <h5> Availability : {item.bookStatus}</h5></h4>
+                                    </Carousel.Caption>
+                                </div>
+                            )
+                        })}
                     </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="https://tipyan.com/wp-content/uploads/2020/12/%D9%82%D8%B1%D8%A7%D8%A1%D8%A9-%D9%81%D9%8A-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85-%D8%A8%D9%8A%D9%86-%D8%A7%D9%84%D8%B4%D8%B1%D9%82-%D9%88%D8%A7%D9%84%D8%BA%D8%B1%D8%A8..-%D9%83%D9%8A%D9%81-%D9%8A%D8%AD%D9%84%D9%91%D9%8F-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85-%D8%A3%D8%B2%D9%85%D8%A9-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85%D8%9F.jpg"
-                            alt="Second slide"
-                        />
+                </Carousel> */}
+                {this.props.item.map(item => {
+                    return (
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="https://www.thoughtco.com/thmb/FKaSnt978lMBgSlzvhTiUU0CzgY=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-942494908-06ddf35dd0dc476fbf73f11b5e978e74.jpg" />
+                            <Card.Body>
+                                <Card.Title>{item.bookTitle}</Card.Title>
+                                <Card.Text>
+                                    {item.bookDescription}
+                                </Card.Text>
+                                <Card.Text>
+                                    <Button variant="primary" type="submit" onClick={() => this.props.deleteBook(item._id)} >Delete</Button>
+                                    <Button variant="primary" type="submit" onClick={() => this.props.showUpdateForm(item)}>Update</Button>
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                                Availability : {item.bookStatus}
+                            </Card.Footer>
+                        </Card>
+                    )
+                })}
 
-                        <Carousel.Caption>
-                            <h3>الإسلام بين الشرق والغرب</h3>
-                            <p>
-                                كتاب «الإسلام بين الشرق والغرب»، هو نتيجة لدراسة واسعة متعددة الجوانب لأبرز الأفكار العالمية في تاريخ البشرية المعاصر. إن ظاهرة نسيان الذات التي تميز بها التاريخ الحديث للعالم الإسلامي، تضع المفكر الشرقي والغربي على السواء في موقف مماثل من هذا الكتاب. فمن خلال الدراسة المقارنة للمقدمات الأساسية والنتائج المترتبة عليها في المجالات الاجتماعية والقانونية والسياسية والثقافية والنفسية، وغيرها من المجالات للأيديولوجيتين اللتين حددتا أقدار الجنس البشري على مدى القرون الأخيرة. من خلال هذه الدراسة يكشف لنا المؤلف عن أعراض المشهد المأساوي المتزايد للتنصير والإلحاد في هذا العالم. فالمسيحية كمثال لظاهرة دينية حضارية ـ أعني دينًا بمعناه الغربي معزولاً عن قانون الوحي ـ هي فكرة شاملة للإبداع والحضارة والفن والأخلاق، وبهذا حلقت المسيحية في روحانية التاريخ. أما الإلحاد الذي يستند إلى مدخل مادي ـ الاشتراكية منظوره العملي والتاريخي ـ هذا الإلحاد هو العامل المشترك للعناصر التطورية والحضارية والسياسية والطوباوية التي تُعنى بالطبيعة المادية للإنسان وتاريخه.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="https://cdn.sotor.com/thumbs/fit630x300/27045/1578139760/%D9%86%D8%A8%D8%B0%D8%A9_%D8%B9%D9%86_%D9%83%D8%AA%D8%A7%D8%A8_%D8%B1%D8%A3%D9%8A%D8%AA_%D8%B1%D8%A7%D9%85_%D8%A7%D9%84%D9%84%D9%87.jpg"
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3>رأيت رام الله</h3>
-                            <p>
-                                "رأيت رام الله" كتاب فاز بجائزة نجيب محفوظ للإبداع الأدبي (1997) هل هي رام الله سرّ الإبداع المحقق!! أم أنها الثلاثون عاماً من الغربة أشعلت في القلب الحنين والاشتياق إلى ساكني رام الله!! أم أنه الوطن المحرم المنتظر على مشارف جسر العبور... جسر العودة ذاك الذي سكن في ذاكرة مريد البرغوثي بصرير خشبة، وبضيق مساحته وقصر طوله. هو ذاك الجسر القصير مشت عبره الذاكرة إلى ذاك الأفق الرحب المشبع برائحة الأهل والمترع بالصور القديمة الساكنة في الوجدان.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
 
             </>
         )
